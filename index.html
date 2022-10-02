@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Repeate text</title>
+</head>
+<body>
+    <h1 id="ti">Welcome to my Webpage <span>Manu's</span> Special Chat</h1>
+    <p>Here i will try to create new techniques to make<br> your chating easy by creating repeated text by one click...</p>
+    <h2>Enter Text Here.<span id="star">*</span></h2>
+    <textarea name="text" class="text" id="text" cols="30" rows="5"></textarea>
+    <h2>Enter Number of times<span id="star">*</span></h2>
+    <input type="text" id="number">
+    <button  onclick="get()">Get Text</button>
+
+    <div class="error">
+        <span id="error"></span>
+    </div>
+
+    <div class="out " id="out">
+        <h1>Thanks for Using this Webpage<span> :</span></h1>
+        <h2>Output</h2>
+        <textarea name="out" class="text" id="output" cols="30" rows="5"></textarea>
+    </div>
+    <footer>
+        Copyright <i class="fa fa-copyright" style="font-size: 20px;"></i> by Mr.Manoj Kumar D
+    </footer>
+    <script>
+        function get(){
+            let x=document.getElementById("text").value;
+            let y=document.getElementById("number").value;
+            var e=document.getElementById("out");
+            var regEx = /^[ ]*$/;
+
+            if(x.match(regEx) || y.length==0){
+                document.getElementById("error").innerHTML="Enter all information.";
+                e.classList.remove("full");
+            }
+            else{
+                if(y<0 || isNaN(y)){
+                    document.getElementById("error").innerHTML="Enter valid number.";
+                    e.classList.remove("full");
+                }
+                else{
+                    document.getElementById("error").innerHTML="";
+
+                
+                    e.classList.add("full");
+
+                
+                    let z="";
+                    for(i=0;i<y;i++){
+                        z+=x+"\n";
+                    }
+                    
+                    document.getElementById("output").value=z;
+                }
+        }
+            
+        }
+    </script>
+</body>
+</html>
